@@ -4,6 +4,8 @@ import styled from "styled-components";
 import imgKortrijk from "../assets/img/locations/kortrijk.png";
 import imgRijsel from "../assets/img/locations/rijsel.png";
 import imgUnknown from "../assets/img/locations/unknown-location.png";
+import datumImg from "../assets/img/locations/datum_bg.png";
+import vertLineImg from "../assets/img/locations/trajectline_vertical.png";
 
 const Location = ({ status, loc }) => {
   let imgSrc;
@@ -18,13 +20,14 @@ const Location = ({ status, loc }) => {
 
   return (
     <StyledArticle>
-      <Datum>DATUM</Datum>
+      {imgSrc !== imgUnknown ? <Line></Line> : ""}
+      {imgSrc !== imgUnknown ? <Datum>28 Januari</Datum> : ""}
       <LocDiv>
         <LocImg src={imgSrc} alt={loc} />
         <LocP>{loc}</LocP>
       </LocDiv>
-      <HuisP>Cultuurhuis</HuisP>
-      <EventP>Evenement</EventP>
+      <HuisP>Schouwburg Kortrijk</HuisP>
+      <EventP>BUMP festival</EventP>
     </StyledArticle>
   );
 };
@@ -38,19 +41,26 @@ const StyledArticle = styled.article`
     "img huis"
     "img event"
     "img .";
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
 `;
 
 const Datum = styled.p`
-  background-color: #7d86ca;
   grid-area: datum;
-  width: 10rem;
+  background: url(${datumImg});
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 11rem;
+  height: 2.5rem;
   justify-self: center;
   text-align: center;
-  padding: 0.5rem;
-  margin-bottom: -1.5rem;
+  padding: 0.7rem;
+  margin-bottom: -2rem;
   z-index: 1;
   color: white;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: bold;
 `;
 
 const LocDiv = styled.div`
@@ -79,12 +89,25 @@ const HuisP = styled.p`
   grid-area: huis;
   margin-left: 2rem;
   color: #4e5587;
+  font-weight: bold;
 `;
 
 const EventP = styled.p`
   grid-area: event;
   margin-left: 2rem;
   color: #8089ce;
+  margin-top: 1rem;
+`;
+
+const Line = styled.div`
+  position: absolute;
+  background: url(${vertLineImg});
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 1.8rem;
+  height: 25rem;
+  top: 50%;
+  left: 6.5rem;
 `;
 
 export default Location;

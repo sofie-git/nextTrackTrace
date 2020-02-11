@@ -5,6 +5,8 @@ import TopBar from "./components/TopBar";
 import Traject from "./components/Traject";
 import ConfirmModal from "./components/ConfirmModal";
 
+import mainBg from "./assets/img/main_bg.png";
+
 function App() {
   // showPopUp() {
   //   console.log("show the confirmation pop-up");
@@ -13,12 +15,12 @@ function App() {
   let showPopUp = false;
 
   return (
-    <main>
+    <Main>
       <TopBar />
       <Traject />
       <FixedButton>Ik wil mijn kaartje terug</FixedButton>
       {showPopUp === true ? <ConfirmModal /> : console.log("NEWP")}
-    </main>
+    </Main>
   );
 }
 
@@ -39,6 +41,10 @@ const FixedButton = styled.button`
   &:active {
     background-color: purple;
   }
+`;
+
+const Main = styled.main`
+  background: url(${mainBg});
 `;
 
 export default App;

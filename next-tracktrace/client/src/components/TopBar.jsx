@@ -5,6 +5,7 @@ import LanguageButtons from "./LanguageButtons";
 import YourCode from "./YourCode";
 import bekijkButtonImg from "../assets/img/buttons/bekijk_button.png";
 import connextButtonImg from "../assets/img/buttons/connext_button.png";
+import headerBg from "../assets/img/header_bg.png";
 
 const TopBar = () => {
   return (
@@ -26,9 +27,11 @@ const TopBar = () => {
 };
 
 const StyledSection = styled.section`
-  background-color: #7d86ca;
+  background: url(${headerBg});
+  background-repeat: repeat-x;
+  height: 50rem;
   color: white;
-  padding: 2rem;
+  padding: 2.1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
