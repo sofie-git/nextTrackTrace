@@ -10,12 +10,14 @@ function App() {
   //   console.log("show the confirmation pop-up");
   // }
 
+  let showPopUp = false;
+
   return (
     <main>
       <TopBar />
       <Traject />
       <FixedButton>Ik wil mijn kaartje terug</FixedButton>
-      <ConfirmModal />
+      {showPopUp === true ? <ConfirmModal /> : console.log("NEWP")}
     </main>
   );
 }
@@ -28,6 +30,7 @@ const FixedButton = styled.button`
   border: none;
   width: 100%;
   height: 4rem;
+  z-index: 2;
 
   &:focus {
     outline: none;

@@ -6,7 +6,7 @@ const ConfirmModal = () => {
     <StyledModal>
       <button>TERUG</button>
       <div>
-        <h2>Ben je zeker dat je je kaartje terug wil?</h2>
+        <ModalTitle>Ben je zeker dat je je kaartje terug wil?</ModalTitle>
         <p>
           Vanaf dan haal je je kaartje uit de Eurometropool en is het niet meer
           mogelijk dat anderen je kaartje verder kunnen aanvullen.
@@ -32,6 +32,11 @@ const StyledModal = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  background-color: whitesmoke;
+  border-radius: 3rem;
+  padding: 2.5rem;
+  z-index: 3;
 `;
 
 const ModalTitle = styled.h2`

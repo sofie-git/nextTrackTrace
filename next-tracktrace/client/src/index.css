@@ -22,3 +22,11 @@ code {
 a {
   text-decoration: none;
 }
+
+p {
+  line-height: 1.4;
+}
+
+strong {
+  font-weight: bold;
+}

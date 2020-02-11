@@ -31,7 +31,7 @@ const Location = ({ status, loc }) => {
 
 const StyledArticle = styled.article`
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: 15rem 15rem;
   grid-template-rows: repeat(4, auto);
   grid-template-areas:
     "datum ."
@@ -44,7 +44,13 @@ const StyledArticle = styled.article`
 const Datum = styled.p`
   background-color: #7d86ca;
   grid-area: datum;
-  width: 15rem;
+  width: 10rem;
+  justify-self: center;
+  text-align: center;
+  padding: 0.5rem;
+  margin-bottom: -1.5rem;
+  z-index: 1;
+  color: white;
 `;
 
 const LocDiv = styled.div`
@@ -71,10 +77,14 @@ const LocP = styled.p`
 
 const HuisP = styled.p`
   grid-area: huis;
+  margin-left: 2rem;
+  color: #4e5587;
 `;
 
 const EventP = styled.p`
   grid-area: event;
+  margin-left: 2rem;
+  color: #8089ce;
 `;
 
 export default Location;
