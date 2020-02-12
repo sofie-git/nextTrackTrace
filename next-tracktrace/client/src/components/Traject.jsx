@@ -8,7 +8,7 @@ const Traject = () => {
   // en dan de mankerende aantal locaties als "unknown" componenten zetten
 
   return (
-    <StyledSection>
+    <StyledSection id="traject">
       <StyledP>
         Uw kaartje werd al op <strong>1 andere plaats</strong> binnen de
         Eurometropool beantwoord!

@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import ScrollIntoView from "react-scroll-into-view";
 
 import LanguageButtons from "./LanguageButtons";
 import YourCode from "./YourCode";
 import bekijkButtonImg from "../assets/img/buttons/bekijk_button.png";
 import connextButtonImg from "../assets/img/buttons/connext_button.png";
 import headerBg from "../assets/img/header_bg.png";
+import pijltjeImg from "../assets/img/wit_pijltje.png";
 
 const TopBar = () => {
   return (
@@ -22,6 +24,9 @@ const TopBar = () => {
       </Text>
       <BekijkButton>Mijn kaartje herbekijken</BekijkButton>
       <ConnextButton>Meer info over CONNEXT</ConnextButton>
+      <ScrollIntoView selector="#traject">
+        <PijltjeButton />
+      </ScrollIntoView>
     </StyledSection>
   );
 };
@@ -31,7 +36,7 @@ const StyledSection = styled.section`
   background-repeat: repeat-x;
   height: 50rem;
   color: white;
-  padding: 2.1rem;
+  padding: 2rem 2rem 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,7 +52,7 @@ const FlexDiv = styled.div`
 const Title = styled.h1`
   font-size: 3.2rem;
   font-weight: bold;
-  margin: 3rem 0 1rem;
+  margin: 2rem 0 1rem;
   line-height: 1.1;
   width: 28rem;
 
@@ -60,17 +65,18 @@ const SubTitle = styled.p`
   opacity: 0.6;
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 2rem;
   width: 28rem;
 
   @media (min-width: 400px) {
+    margin-bottom: 1rem;
     width: 32rem;
   }
 `;
 
 const Text = styled.p`
   width: 28rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
 
   @media (min-width: 400px) {
     width: 32rem;
@@ -101,6 +107,20 @@ const ConnextButton = styled(Button)`
   background: url(${connextButtonImg});
   background-size: 100%;
   background-repeat: no-repeat;
+`;
+
+const PijltjeButton = styled.button`
+  background: url(${pijltjeImg});
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 2.7rem;
+  height: 4rem;
+  border: none;
+  margin-top: 1.5rem;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export default TopBar;
