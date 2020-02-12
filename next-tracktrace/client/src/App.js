@@ -10,18 +10,22 @@ import mainBg from "./assets/img/main_bg.png";
 import cardBackImg from "./assets/img/buttons/cardback_button.png";
 
 function App({ uiStore }) {
+  let cards = uiStore.cards;
+  console.log("De cards gelogd vanuit App.js:");
+  console.log(cards);
+
   return (
     <Main>
+      {console.log("Hier komen de kaart ids:")}
+      {cards.map(card => (
+        <p>{card.uniqueId}</p>
+      ))}
       <TopBar />
       <Traject />
       <FixedButton onClick={uiStore.handleToggleModal}>
         Ik wil mijn kaartje terug
       </FixedButton>
-      {uiStore.showModal === true ? (
-        <ConfirmModal />
-      ) : (
-        console.log("NEWP geen modal")
-      )}
+      {uiStore.showModal === true ? <ConfirmModal /> : ""}
     </Main>
   );
 }
