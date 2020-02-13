@@ -1,10 +1,10 @@
 const mongoose = require(`mongoose`);
-const ObjectId = mongoose.Schema.Types.ObjectId;
+//const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const CardSchema = mongoose.Schema(
   {
     //card data
-    id: ObjectId,
+    //id: ObjectId,
     theme: String,
     text: String,
     image: Number,

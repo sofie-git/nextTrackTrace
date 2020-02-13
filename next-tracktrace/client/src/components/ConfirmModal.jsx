@@ -112,6 +112,10 @@ const ConfirmButton = styled(Button)`
   background-size: 100%;
   background-repeat: no-repeat;
   margin-top: 0;
+
+  &:active {
+    background-color: yellow;
+  }
 `;
 
 const ContinueButton = styled(Button)`

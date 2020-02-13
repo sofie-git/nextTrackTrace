@@ -25,12 +25,32 @@ exports.create = async (req, res) => {
 exports.findAll = async (req, res) => {
   try {
     const cards = await Card.find();
+    console.log(cards);
     res.send(cards);
   } catch (err) {
     console.log("error", err);
 
     res.status(500).send({ err: err.card || "error" });
   }
+};
+
+exports.findOne = async (req, res) => {
+  /* console.log("REQ", req);
+  console.log("REQ.BODY", req.body); */
+  console.log("REQ.BODY.ID", req.params.id);
+  const card = await Card.findOne({ uniqueId: req.params.id });
+  res.send(card);
+  // try {
+  //   console.log("REQ", req);
+  //   console.log("REQ.BODY", req.body);
+  //   console.log("REQ.BODY.ID", req.body.id);
+  //   const card = await Card.findOne({ _id: req.body.id });
+  //   res.send(card);
+  // } catch (err) {
+  //   console.log("error", err);
+
+  //   res.status(500).send({ err: err.card || "error" });
+  // }
 };
 
 exports.answerCard = async (req, res) => {

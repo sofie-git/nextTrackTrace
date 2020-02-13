@@ -11,6 +11,13 @@ class Api {
     return await r.json();
   };
 
+  getCardById = async id => {
+    console.log("ID", id);
+    // console.log("Get card by Id: ", obj.uniqueId);
+    const r = await fetch(`/api/${this.entity}/${id}`, this.getOptions(`get`));
+    return await r.json();
+  };
+
   createCard = async obj => {
     console.log(obj);
 
