@@ -5,15 +5,17 @@ import Card from "../models/Card";
 class UIStore {
   cards = [];
   showModal = false;
-  testId = "yiQbOdVI";
-  testId2 = "5e443203e6e13c824cd0750b";
-  currentCard = "yiQbOdVI";
+  currentCard = new Card(this.rootStore);
+  currentTheme = "";
+  currentCode = "";
+  currentLocations = [];
 
   constructor(rootStore) {
     this.rootStore = rootStore;
     this.api = new Api(`cards`);
     this.getCards();
-    this.findCard(this.testId);
+    //this.findCard("4Hq8AC-W");
+    //this.findCard("DzhM4d6W");
   }
 
   handleToggleModal = () => {
@@ -31,25 +33,15 @@ class UIStore {
   };
 
   findCard = cardId => {
-    console.log(cardId);
-    // const card = this.cards.filter(obj => {
-    //   return obj.uniqueId === this.cardId;
-    // });
-    // console.log("CARD", card);
-
     this.api.getCardById(cardId).then(card => {
-      console.log("DIT IS DE GEVONDEN KAART: ", card);
+      this.currentCard = card;
+      this.currentTheme = card.theme;
+      this.currentCode = card.uniqueId;
+      this.currentLocations = card.locations;
+      return card;
     });
   };
-
-  showCard = () => {
-    const card = this.cards.filter(obj => {
-      return obj.uniqueId === this.selectedCard;
-    });
-
-    console.log("IN SHOW CARD", card[0]);
-    return card[0];
-  };
+  s;
 
   _addCard = values => {
     const card = new Card(this.rootStore);
@@ -61,10 +53,12 @@ class UIStore {
 decorate(UIStore, {
   showModal: observable,
   cards: observable,
-  selectedCard: observable,
+  currentCard: observable,
+  currentCode: observable,
+  currentTheme: observable,
+  currentLocations: observable,
   getCards: action,
-  findCard: action,
-  showCard: action
+  findCard: action
 });
 
 export default UIStore;

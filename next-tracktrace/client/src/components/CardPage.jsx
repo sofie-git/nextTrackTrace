@@ -9,17 +9,12 @@ import ConfirmModal from "../components/ConfirmModal";
 import mainBg from "../assets/img/main_bg.png";
 import cardBackImg from "../assets/img/buttons/cardback_button.png";
 
-const CardPage = ({ uiStore }) => {
-  const cards = uiStore.cards;
-  const uniqueCardId = uiStore.currentCard;
+const CardPage = ({ uiStore, match }) => {
+  const urlId = match.params.cardId;
+  console.log("URL ID: ", urlId);
 
-  const filteredCard = cards.filter(obj => {
-    return obj.uniqueId === uniqueCardId;
-  });
-
-  //const foundCard = uiStore.findCard(uiStore.testId2);
-  console.log("CURRENT", filteredCard);
-  //console.log("CURRENT2", foundCard);
+  const myCard = uiStore.findCard(urlId);
+  console.log("MY CARD BY URL ID: ", myCard);
 
   return (
     <Main>

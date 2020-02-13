@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { inject, observer } from "mobx-react";
 
 import Location from "./Location";
 
-const Traject = () => {
-  // TODO: functie die checkt hoeveel locaties er uit de data gehaald zijn
-  // en dan de mankerende aantal locaties als "unknown" componenten zetten
+const Traject = ({ uiStore }) => {
+  let myTheme = uiStore.currentTheme;
+  console.log("MY THEME", myTheme);
+
+  let myLocations = uiStore.currentLocations;
+  console.log("MY LOCATIONS", myLocations);
 
   return (
     <StyledSection id="traject">
@@ -42,4 +46,4 @@ const StyledP = styled.p`
   }
 `;
 
-export default Traject;
+export default inject(`uiStore`)(observer(Traject));

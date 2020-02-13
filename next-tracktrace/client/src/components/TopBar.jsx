@@ -2,20 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import ScrollIntoView from "react-scroll-into-view";
 
-import LanguageButtons from "./LanguageButtons";
+// import LanguageButtons from "./LanguageButtons";
 import YourCode from "./YourCode";
 import bekijkButtonImg from "../assets/img/buttons/bekijk_button.png";
 import connextButtonImg from "../assets/img/buttons/connext_button.png";
 import headerBg from "../assets/img/header_bg.png";
 import pijltjeImg from "../assets/img/wit_pijltje.png";
 
-const TopBar = () => {
+const TopBar = ({ myCode }) => {
+  //console.log("Mijn CODE:", myCode);
   return (
     <StyledSection>
-      <FlexDiv>
-        <LanguageButtons />
-        <YourCode />
-      </FlexDiv>
+      <YourCode />
       <Title>Volg hier je verstuurde kaartje!</Title>
       <SubTitle>Welkom op je persoonlijke track and trace pagina.</SubTitle>
       <Text>
@@ -42,17 +40,9 @@ const StyledSection = styled.section`
   align-items: center;
 `;
 
-const FlexDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-`;
-
 const Title = styled.h1`
   font-size: 3.2rem;
   font-weight: bold;
-  margin: 2rem 0 1rem;
   line-height: 1.1;
   width: 28rem;
 
@@ -66,6 +56,7 @@ const SubTitle = styled.p`
   font-size: 2rem;
   font-weight: bold;
   width: 28rem;
+  margin: 1rem 0;
 
   @media (min-width: 400px) {
     margin-bottom: 1rem;

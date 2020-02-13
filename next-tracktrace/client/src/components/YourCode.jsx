@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { inject, observer } from "mobx-react";
 
-const YourCode = () => {
+const YourCode = ({ uiStore }) => {
+  let myCode = uiStore.currentCode;
+  console.log("MY CODE", myCode);
+
   return (
     <StyledDiv>
       <p>Je persoonlijke code:</p>
-      <CodeP>Ae73B8</CodeP>
+      <CodeP>{myCode}</CodeP>
     </StyledDiv>
   );
 };
@@ -13,6 +17,7 @@ const YourCode = () => {
 const StyledDiv = styled.div`
   text-align: right;
   font-size: 1.4rem;
+  align-self: flex-end;
 `;
 
 const CodeP = styled.p`
@@ -20,4 +25,4 @@ const CodeP = styled.p`
   font-size: 1.8rem;
 `;
 
-export default YourCode;
+export default inject(`uiStore`)(observer(YourCode));
