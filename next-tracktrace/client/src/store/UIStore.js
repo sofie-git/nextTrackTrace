@@ -8,6 +8,7 @@ class UIStore {
   currentCard = new Card(this.rootStore);
   currentTheme = "";
   currentCode = "";
+  currentFirstLocation = "";
   currentLocations = [];
 
   constructor(rootStore) {
@@ -30,6 +31,7 @@ class UIStore {
         newCards.forEach(newCard => this._addCard(newCard));
       }
     });
+    console.log(this.cards);
   };
 
   findCard = cardId => {
@@ -37,6 +39,7 @@ class UIStore {
       this.currentCard = card;
       this.currentTheme = card.theme;
       this.currentCode = card.uniqueId;
+      this.currentFirstLocation = card.locationCreated;
       this.currentLocations = card.locations;
       return card;
     });
@@ -56,6 +59,7 @@ decorate(UIStore, {
   currentCard: observable,
   currentCode: observable,
   currentTheme: observable,
+  currentFirstLocation: observable,
   currentLocations: observable,
   getCards: action,
   findCard: action

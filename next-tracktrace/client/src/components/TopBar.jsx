@@ -75,6 +75,7 @@ const Text = styled.p`
 `;
 
 const Button = styled.button`
+  font-family: Nunito;
   color: white;
   font-size: 1.6rem;
   border: none;

@@ -95,6 +95,7 @@ const BackButton = styled.button`
 `;
 
 const Button = styled.button`
+  font-family: Nunito;
   border: none;
   color: white;
   font-size: 1.4rem;

@@ -3,31 +3,31 @@ import styled from "styled-components";
 
 import imgKortrijk from "../assets/img/locations/kortrijk.png";
 import imgRijsel from "../assets/img/locations/rijsel.png";
-import imgUnknown from "../assets/img/locations/unknown-location.png";
+import imgUnknown from "../assets/img/locations/unknown-location.gif";
 import datumImg from "../assets/img/locations/datum_bg.png";
 import vertLineImg from "../assets/img/locations/trajectline_vertical.png";
 
 const Location = ({ status, loc }) => {
   let imgSrc;
   // als locatie X is, toon dan de bijhorende img src
-  if (loc === `Kortrijk`) {
+  if (status === `first`) {
     imgSrc = imgKortrijk;
-  } else if (loc === `Rijsel`) {
+  } else if (status === `passed`) {
     imgSrc = imgRijsel;
-  } else {
+  } else if (status === `unknown`) {
     imgSrc = imgUnknown;
   }
 
   return (
     <StyledArticle>
-      {imgSrc !== imgUnknown ? <Line></Line> : ""}
-      {imgSrc !== imgUnknown ? <Datum>28 Januari</Datum> : ""}
+      {status !== "unknown" ? <Line></Line> : ""}
+      {status !== "unknown" ? <Datum>28 Januari</Datum> : ""}
       <LocDiv>
         <LocImg src={imgSrc} alt={loc} />
-        <LocP>{loc}</LocP>
+        {status === `first` ? <LocP>Startplaats</LocP> : ""}
       </LocDiv>
-      <HuisP>Schouwburg Kortrijk</HuisP>
-      <EventP>BUMP festival</EventP>
+      {status !== "unknown" ? <HuisP>{loc}</HuisP> : ""}
+      {/* {status !== "unknown" ? <EventP>BUMP festival</EventP> : ""} */}
     </StyledArticle>
   );
 };
@@ -104,7 +104,7 @@ const Line = styled.div`
   background: url(${vertLineImg});
   background-size: 100%;
   background-repeat: no-repeat;
-  width: 1.8rem;
+  width: 1.6rem;
   height: 25rem;
   top: 50%;
   left: 6.5rem;

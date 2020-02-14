@@ -39,6 +39,7 @@ const FixedButton = styled.button`
   height: 5rem;
   z-index: 2;
   font-size: 1.6rem;
+  font-family: Nunito;
   font-weight: bold;
 
   &:focus {

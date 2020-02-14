@@ -6,19 +6,23 @@ import Location from "./Location";
 
 const Traject = ({ uiStore }) => {
   let myTheme = uiStore.currentTheme;
-  console.log("MY THEME", myTheme);
-
+  let myFirstLocation = uiStore.currentFirstLocation;
   let myLocations = uiStore.currentLocations;
-  console.log("MY LOCATIONS", myLocations);
 
   return (
     <StyledSection id="traject">
       <StyledP>
-        Uw kaartje werd al op <strong>1 andere plaats</strong> binnen de
-        Eurometropool beantwoord!
+        {myLocations.length === 0
+          ? "Je kaartje is nog onderweg naar de eerste locatie!"
+          : "Uw kaartje werd al op" +
+            myLocations.length +
+            "andere plaats binnen de Eurometropool beantwoord!"}
       </StyledP>
-      <Location status="passed" loc="Kortrijk" />
-      <Location status="current" loc="Rijsel" />
+
+      <Location status="first" loc={myFirstLocation} />
+      {myLocations.map(location => (
+        <Location status="current" loc={location} />
+      ))}
       <Location status="unknown" loc="" />
     </StyledSection>
   );
