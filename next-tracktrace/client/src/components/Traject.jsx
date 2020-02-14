@@ -5,7 +5,6 @@ import { inject, observer } from "mobx-react";
 import Location from "./Location";
 
 const Traject = ({ uiStore }) => {
-  let myTheme = uiStore.currentTheme;
   let myFirstLocation = uiStore.currentFirstLocation;
   let myLocations = uiStore.currentLocations;
 
@@ -40,6 +39,7 @@ const StyledP = styled.p`
   font-weight: 600;
   margin-bottom: 2rem;
   color: #8089ce;
+  margin-top: -2rem;
 
   & strong {
     color: #4c5384;

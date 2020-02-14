@@ -77,6 +77,10 @@ const StyledModal = styled.div`
     font-weight: 600;
   }
 
+  & div {
+    width: 24rem;
+  }
+
   @media (min-width: 400px) {
     width: 32rem;
   }

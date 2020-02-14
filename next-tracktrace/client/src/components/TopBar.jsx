@@ -41,10 +41,11 @@ const StyledSection = styled.section`
 `;
 
 const Title = styled.h1`
-  font-size: 3.2rem;
-  font-weight: bold;
+  font-size: 3rem;
+  font-weight: 800;
   line-height: 1.1;
   width: 28rem;
+  margin-top: 1.5rem;
 
   @media (min-width: 400px) {
     width: 32rem;
@@ -56,7 +57,8 @@ const SubTitle = styled.p`
   font-size: 2rem;
   font-weight: bold;
   width: 28rem;
-  margin: 1rem 0;
+  line-height: 1.2;
+  margin: 2.5rem 0 1rem;
 
   @media (min-width: 400px) {
     margin-bottom: 1rem;
@@ -68,6 +70,7 @@ const Text = styled.p`
   width: 28rem;
   margin-bottom: 1rem;
   font-size: 1.4rem;
+  line-height: 1.6;
 
   @media (min-width: 400px) {
     width: 32rem;
@@ -81,8 +84,8 @@ const Button = styled.button`
   border: none;
   margin-top: 1rem;
   font-weight: bold;
-  width: 26rem;
-  height: 5rem;
+  width: 24rem;
+  height: 4.7rem;
 
   &:focus {
     outline: none;
@@ -105,10 +108,10 @@ const PijltjeButton = styled.button`
   background: url(${pijltjeImg});
   background-size: 100%;
   background-repeat: no-repeat;
-  width: 2.7rem;
-  height: 4rem;
+  width: 2rem;
+  height: 3rem;
   border: none;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 
   &:focus {
     outline: none;

@@ -104,10 +104,10 @@ const Line = styled.div`
   background: url(${vertLineImg});
   background-size: 100%;
   background-repeat: no-repeat;
-  width: 1.6rem;
+  width: 1.2rem;
   height: 25rem;
   top: 50%;
-  left: 6.5rem;
+  left: 6.9rem;
 `;
 
 export default Location;
